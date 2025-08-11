@@ -1,0 +1,9 @@
+{% extends 'calculator/base.html' %}
+{% block content %}
+  <h2>Your Projects</h2>
+  <ul>
+    {% for project in projects %}
+      <li><a href="{% url 'project_detail' project.id %}">{{ project.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

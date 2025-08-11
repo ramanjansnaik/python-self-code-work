@@ -1,0 +1,22 @@
+{% extends 'calculator/base.html' %}
+{% block content %}
+<h2>Draw Your Project</h2>
+
+<canvas id="canvas" width="800" height="600" style="border:1px solid #ccc"></canvas>
+
+<div>
+  <label>Block type:
+    <select id="blockType">
+      {% for block in blocks %}
+      <option value="{{ block.id }}" data-price="{{ block.base_price_per_sqft }}">{{ block.name }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <button id="addRect">Add Block</button>
+</div>
+
+<h3>Total Cost: $<span id="totalCost">0.00</span></h3>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+<script src="{% static 'calculator/js/canvas.js' %}"></script>
+{% endblock %}

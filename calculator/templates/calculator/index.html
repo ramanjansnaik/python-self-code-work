@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pre Cost Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+</head>
+<body>
+    <h1>Pre Cost Calculator</h1>
+    <canvas id="canvas" width="800" height="500" style="border:1px solid #ccc;"></canvas>
+    <p>Total Cost: ₹<span id="total-cost">0</span></p>
+    <button onclick="saveDesign()">Save Project</button>
+    <script src="{% static 'calculator/canvas.js' %}"></script>
+</body>
+</html>

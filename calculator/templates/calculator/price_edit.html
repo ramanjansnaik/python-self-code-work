@@ -1,0 +1,12 @@
+{% extends 'calculator/base.html' %}
+{% block content %}
+<h2>Edit Block Prices</h2>
+<form method="post">
+  {% csrf_token %}
+  {% for block in blocks %}
+    <label>{{ block.name }}: </label>
+    <input type="text" name="price_{{ block.id }}" value="{{ block.base_price_per_sqft }}">
+  {% endfor %}
+  <button type="submit">Save</button>
+</form>
+{% endblock %}
