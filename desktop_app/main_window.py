@@ -12,7 +12,7 @@ from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QAction, QIcon
 
 from desktop_app.calculator_tab import CalculatorTab
-from desktop_app.testgen_tab import TestGenTab
+from desktop_app.testgen_widget import TestGenTab
 from desktop_app.block_types_panel import BlockTypesPanel
 from desktop_app.projects_panel import ProjectsPanel
 
