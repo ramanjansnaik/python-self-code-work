@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - ./db.sqlite3:/app/db.sqlite3
+    environment:
+      - DJANGO_SETTINGS_MODULE=precostcalc.settings
+      - DEBUG=True
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+    networks:
+      - testgen-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    command: npm start
+    networks:
+      - testgen-network
+
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=testgen_db
+      - POSTGRES_USER=testgen_user
+      - POSTGRES_PASSWORD=testgen_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - testgen-network
+
+volumes:
+  postgres_data:
+
+networks:
+  testgen-network:
+    driver: bridge
