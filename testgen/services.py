@@ -1,7 +1,12 @@
 import time
 import json
-import requests
 from typing import Dict, List, Optional
+
+try:
+    import requests
+except ImportError:  # pragma: no cover - handled for environments without optional deps
+    requests = None
+
 from .models import LLMProvider, TestProject, GeneratedTest
 
 
@@ -10,6 +15,9 @@ class LLMService:
         self.provider = provider
     
     def generate_completion(self, prompt: str, max_tokens: int = 2000) -> Dict:
+        if requests is None:
+            raise ImportError('The requests library is required for LLM provider calls.')
+
         if self.provider.provider_type == 'openai':
             return self._openai_completion(prompt, max_tokens)
         elif self.provider.provider_type == 'anthropic':
