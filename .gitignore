@@ -1,7 +1,12 @@
-# Python
+# Byte-compiled / optimized / DLL files
+__pycache__/
 *.py[cod]
 *$py.class
+
+# C extensions
 *.so
+
+# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -15,28 +20,53 @@ parts/
 sdist/
 var/
 wheels/
+pip-wheel-metadata/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
-.venv/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+.env
+.venv
+env/
 venv/
 ENV/
-env/
+env.bak/
+venv.bak/
 
 # Django
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-/media
-/staticfiles
-/static
+*.sqlite3
 
-# Environment variables
-.env
-.env.local
-.env.*.local
+# PyQt6 specific
+*.ui
 
 # IDE
 .vscode/
@@ -44,28 +74,53 @@ db.sqlite3-journal
 *.swp
 *.swo
 *~
+
+# OS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-# Frontend
-frontend/node_modules/
-frontend/build/
-frontend/.env
-frontend/.env.local
-frontend/.env.*.local
-frontend/npm-debug.log*
-frontend/yarn-debug.log*
-frontend/yarn-error.log*
-frontend/package-lock.json
-frontend/yarn.lock
+# Project specific
+*.exe
+*.dll
+*.so
+*.dylib
+desktop_app/__pycache__/
+precostcalc/__pycache__/
+calculator/__pycache__/
+testgen/__pycache__/
+build/
+.cache/
 
-# Testing
-.coverage
-htmlcov/
-.pytest_cache/
-.tox/
+# Database
+db.sqlite3*
+!db.sqlite3
 
-# Misc
+# Static and media files
+static/
+media/
+uploads/
+
+# Environment variables
+.env.local
+.env.*.local
+
+# Log files
+*.log
+logs/
+
+# Backup files
 *.bak
+*.backup
+
+# Temporary files
+tmp/
+temp/
 *.tmp
-__pycache__/
-*.pyc
+
+# Documentation build
+docs/_build/
